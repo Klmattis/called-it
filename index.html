@@ -7,6 +7,9 @@
     <meta name="description" content="A simple mechanism for verifiably storing predictions for fun">
   	<meta name="author" content="Keith Mattison">
 
+  	<!-- Load Arweave -->
+		<script src="https://unpkg.com/arweave/bundles/web.bundle.min.js"></script>
+
   	<!-- Load Semantic UI -->
   	<script src="https://code.jquery.com/jquery-3.1.1.min.js" crossorigin="anonymous"></script>
   	<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
@@ -16,11 +19,22 @@
   	<link rel='stylesheet/less' type='text/css' href='./styles.less' />
   	<script src='https://cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.min.js' ></script>
   	<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' /> 
+
+		<!-- Initialize Arweave -->
+  	<script>
+			var arweave = Arweave.init({host: 'arweave.net', port: 443, protocol: 'https'});
+			var wallet = {};
+			var content = "";
+		</script>
   </head>
   <body>
 
     <!-- React DOM components -->
-    <div id="header"></div>
+    <div id="layout" class="ui container">
+    	<div id="header"></div>
+    	<div id="login"></div>
+    </div>
+    
 
     <!-- Load React. -->
     <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
@@ -29,6 +43,7 @@
 
     <!-- Load our React component -->
     <script type="text/babel" src="js/header.js"></script>
+		<script type="text/babel" src="js/login.js"></script>
 
   </body>
 </html>
