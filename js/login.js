@@ -14,7 +14,7 @@ class Login extends React.Component {
         var fr = new FileReader();
         fr.onload = (ev) => {
             try {
-                const wallet = JSON.parse(ev.target.result);
+                wallet = JSON.parse(ev.target.result);
                 this.setState({ loggedIn: true });
             } catch (err) {
                 alert('Error logging in: ' + err);
