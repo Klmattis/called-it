@@ -4,9 +4,9 @@
  *	@class  Header component
  */
 class Header extends React.Component {
+		// Render Header
     render() {
         return (
-        	// Header
         	<div id="header-container" className="medium-padding-top centered-text">
 						<div id="header-text" className='large-text'>CALLED IT!</div>
 						<div id="header-divider" className="ui divider"></div>
@@ -16,6 +16,7 @@ class Header extends React.Component {
     }
 }
 
+// Render Header to DOM element
 ReactDOM.render(
     <Header />, 
     document.getElementById("header")

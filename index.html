@@ -22,9 +22,9 @@
 
 		<!-- Initialize Arweave -->
   	<script>
-			var arweave = Arweave.init({host: 'arweave.net', port: 443, protocol: 'https'});
-			var wallet = {};
-			var content = "";
+			const arweave = Arweave.init({host: 'arweave.net', port: 443, protocol: 'https'});
+			const wallet = {};
+			const content = "";
 		</script>
   </head>
   <body>
@@ -32,9 +32,8 @@
     <!-- React DOM components -->
     <div id="layout" class="ui container">
     	<div id="header"></div>
-    	<div id="login"></div>
+    	<div id="login-prediction"></div>
     </div>
-    
 
     <!-- Load React. -->
     <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
@@ -43,7 +42,8 @@
 
     <!-- Load our React component -->
     <script type="text/babel" src="js/header.js"></script>
-		<script type="text/babel" src="js/login.js"></script>
+    <script type="text/babel" src="js/prediction.js"></script>
+    <script type="text/babel" src="js/login.js"></script>
 
   </body>
 </html>
