@@ -10,15 +10,73 @@
   	<!-- Load Arweave -->
 		<script src="https://unpkg.com/arweave/bundles/web.bundle.min.js"></script>
 
-  	<!-- Load Semantic UI -->
+  	<!-- Load jQuery -->
   	<script src="https://code.jquery.com/jquery-3.1.1.min.js" crossorigin="anonymous"></script>
-  	<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
-  	<link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css" />
 
   	<!-- Load custom styles -->
-  	<link rel='stylesheet/less' type='text/css' href='./styles.less' />
-  	<script src='https://cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.min.js' ></script>
   	<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' /> 
+
+  	<style type="text/css">
+			body {
+				background-color: #f9f9f9;
+				font-family: 'Raleway', sans-serif;
+			}
+
+			.medium-padding-top {
+				padding-top: 24px;
+			}
+
+			.large-padding-top {
+				padding-top: 48px;
+			}
+
+			.centered-text {
+				text-align: center;
+			}
+
+			.small-text {
+				font-family: 'Raleway', sans-serif;
+				font-size: 12px;
+				letter-spacing: 2px;
+				line-height: 12px;
+			}
+
+			.medium-text {
+				font-family: 'Raleway', sans-serif;
+				font-size: 24px;
+				font-weight: bold;
+				letter-spacing: 4px;
+				line-height: 24px;
+			}
+
+			.large-text {
+				font-family: 'Raleway', sans-serif;
+				font-size: 48px;
+				font-weight: bold;
+				letter-spacing: 8px;
+				line-height: 48px;
+			}
+
+			.file-input{
+				height: 200px;
+				border: 2px dashed #62666f;
+				text-align: center;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				position: relative;
+				margin: auto;
+				max-width: 300px;
+			}
+
+			.file-input input[type=file]{
+				opacity: 0;
+				position: absolute;
+				background: none;
+				width: 100%;
+				height: 100%;
+			}
+  	</style>
 
 		<!-- Initialize Arweave -->
   	<script>
@@ -26,24 +84,66 @@
 			let wallet = {};
 			let content = "";
 		</script>
+
+		<!-- Scripts -->
+		<script src="js/login.js"></script>
+
   </head>
   <body>
 
-    <!-- React DOM components -->
-    <div id="layout" class="ui container">
-    	<div id="header"></div>
-    	<div id="login-prediction"></div>
-    </div>
+  	<!-- Header -->
+  	<div id="header-container" class="medium-padding-top centered-text">
+			<div id="header-text" class='large-text'>CALLED IT!</div>
+			<hr />
+			<div id="header-subtext" class='medium-text medium-padding-top'>
+				A SIMPLE MECHANISM FOR VERIFIABLY STORING PREDICTIONS FOR FUN
+			</div>
+		</div>
 
-    <!-- Load React. -->
-    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
-		<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
-		<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+		<!-- Login -->
+		<div id="login-prediction-container">
+      <div id="login-container" class="large-padding-top">
+          <div id="login-file-container" class="file-input">
+              <input id="login-file-input" type="file" onchange="login(this.files)"/>
+              <div id="login-file-description">
+                  DROP YOUR KEY BELOW TO LOGIN AND CREATE A PREDICTION
+              </div>
+          </div>
+      </div>
+  	</div>
 
-    <!-- Load our React component -->
-    <script type="text/babel" src="js/header.js"></script>
-    <script type="text/babel" src="js/prediction.js"></script>
-    <script type="text/babel" src="js/login.js"></script>
-
+  	<!-- Prediction -->
+  	<div id="prediction-container">
+      <div id="prediction-message" class="centered-text small-text">
+          <div id="prediction-header">SUBMIT NEW PREDICTION</div>
+      </div>
+      <div id="prediction-form">
+          <div id="prediction-names-fields">
+              <div id="prediction-first-name-field">
+                  <label>FIRST NAME</label>
+                  <input placeholder="What's your first name?" />
+              </div>
+              <div id="prediction-middle-name-field">
+                  <label>MIDDLE NAME</label>
+                  <input placeholder="What's your middle name?" />
+              </div>
+              <div id="prediction-last-name-field">
+                  <label>LAST NAME</label>
+                  <input placeholder="What's your last name?" />
+              </div>
+          </div>
+          <div id="prediction-prediction-field">
+              <label>PREDICTION</label>
+              <textarea placeholder="What's going to happen?" rows="3"></textarea>
+          </div>
+          <div id="prediction-checkbox-inline-container">
+              <div id="prediction-checkbox-container">
+                  <input id="prediction-checkbox" type="checkbox" />
+                  <label>I understand that once submitted, all provided information is public</label>
+              </div>
+          </div>
+          <div class="prediction-submit"><button>SUBMIT</button></div>
+      </div>
+  	</div>
   </body>
 </html>
